@@ -2,7 +2,7 @@
 
 ---
 
-### Category Name 1 
+### Data Science
 
 [Project 1 Title](/sample_page)
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
@@ -17,9 +17,9 @@
 
 ---
 
-### Category Name 2
+### Data Visualization
 
-- [Project 1 Title](http://example.com/)
+- [Analysis of Fatal Police Shootings](/pdf/sample_presentation.pdf)
 - [Project 2 Title](http://example.com/)
 - [Project 3 Title](http://example.com/)
 - [Project 4 Title](http://example.com/)
