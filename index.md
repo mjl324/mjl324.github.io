@@ -30,6 +30,6 @@ The housing market is becoming more and more volatile in recent years with skyro
 
 I chose the Student Performance Data Set from the UCI Machine Learning Repository to perform common statistical learning methods and figure out the best model based on its cross-validated predictive performance. The models in consideration included penalized lasso regression, k-nearest neighbors, decision tree, and random forest.
 
-<img src="images/Screen Shot 2023-09-05 at 4.46.50 PM.png"/>
+<img src="images/Screen Shot 2023-09-05 at 5.07.27 PM.png"/>
 
 ---
