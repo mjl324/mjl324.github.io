@@ -9,8 +9,8 @@ I did this project when I was first learning how to visualize data using R, whil
 <img src="images/Screen Shot 2023-09-05 at 3.12.54 PM.png"/>
 
 ---
-[Project 2 Title](/pdf/sample_presentation.pdf)
-<img src="images/dummy_thumbnail.jpg?raw=true"/>
+[COVID-19 Vaccination Analysis](/pdf/sample_presentation.pdf)
+<img src="images/Screen Shot 2023-09-05 at 3.30.11 PM"/> <img src="images/Screen Shot 2023-09-05 at 3.29.38 PM"/>
 
 ---
 [Project 3 Title](http://example.com/)
@@ -21,5 +21,3 @@ I did this project when I was first learning how to visualize data using R, whil
 
 
 ---
-<p style="font-size:11px">Page template forked from <a href="https://github.com/evanca/quick-portfolio">evanca</a></p>
-<!-- Remove above link if you don't want to attibute -->
