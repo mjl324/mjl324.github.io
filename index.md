@@ -38,7 +38,7 @@ I chose the Student Performance Data Set from the UCI Machine Learning Repositor
 
 <img src="images/Screen Shot 2023-09-05 at 5.07.27 PM.png"/>
 
-**Figure 4**: A diagram of my regression tree using fancyRpartPlot() function from the *rattle* library in R. The final tree has 22 terminal nodes. Node 2, which is students who have failed more than once before, contains the most amount of students (63) predicted to score low in Math.
+**Figure 4**: A diagram of my regression tree using fancyRpartPlot() function from the *rattle* library in R. The final tree has 22 terminal nodes. Node 2, which contains students who have failed before, contains the most amount of students (63) predicted to score low in Math.
 
 ---
 
