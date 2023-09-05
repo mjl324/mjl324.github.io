@@ -10,7 +10,7 @@ I did this project when I was first learning how to visualize data using R, whil
 
 ---
 [COVID-19 Vaccination Analysis](/pdf/sample_presentation.pdf)
-<img src="images/Screen Shot 2023-09-05 at 3.30.11 PM"/> <img src="images/Screen Shot 2023-09-05 at 3.29.38 PM"/>
+<img src="images/Screen Shot 2023-09-05 at 3.29.38 PM.png"/> <img src="images/Screen Shot 2023-09-05 at 3.29.38 PM.png"/>
 
 ---
 [Project 3 Title](http://example.com/)
