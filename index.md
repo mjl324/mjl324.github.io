@@ -11,11 +11,11 @@ I worked on this project when I was first learning how to visualize data using R
 <img src="images/Screen Shot 2023-09-05 at 4.34.17 PM.png"/>
 
 ---
-** [COVID-19 Vaccination Analysis](/pdf/Vax.pdf) **
+**[COVID-19 Vaccination Analysis](/pdf/Vax.pdf)**
 
 This project similarly came from a place of curiosity as my last project: I wanted to match my findings with what I was reading in the news, which at the time was dominated by the COVID-19 pandemic. In this R markdown file, I analyzed county-level vaccination data from the CDC for three US states, including my home state of New Jersey.
 
-<img src="images/Screen Shot 2023-09-05 at 3.29.38 PM.png"/>
+<img src="images/Screen Shot 2023-09-05 at 5.15.15 PM.png"/>
 
 ---
 **[Housing Prices Forecast](/pdf/Time_Series_Final.pdf)**
@@ -31,5 +31,13 @@ The housing market is becoming more and more volatile in recent years with skyro
 I chose the Student Performance Data Set from the UCI Machine Learning Repository to perform common statistical learning methods and figure out the best model based on its cross-validated predictive performance. The models in consideration included penalized lasso regression, k-nearest neighbors, decision tree, and random forest.
 
 <img src="images/Screen Shot 2023-09-05 at 5.07.27 PM.png"/>
+
+---
+
+**[Data Consulting for Let's Chow](https://www.letschow.org/)**
+
+Let's Chow, formerly Chow Corp, is a nonprofit that connects with military veterans with culinary education and starting their own business. Through Hoyalytics, a student-run data analytics club at Georgetown University for which I am VP of Analytics, a team of data consultants and I pitched new locations in San Diego for another veteran-run food truck. We gathered data from parking meters, foot traffic, and other food truck locations to pinpoint four optimal locations in SD from across the country.
+
+<img src="images/Screen Shot 2023-09-05 at 5.14.31 PM.png"/>
 
 ---
