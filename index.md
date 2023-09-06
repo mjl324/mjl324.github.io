@@ -22,7 +22,7 @@ This project similarly came from a place of curiosity as my last project: I want
 **Figure 2**: Choropleth of New Jersey's full vaccination rates in March 2021.
 
 ---
-**[Housing Prices Forecast](/pdf/Time_Series_Final.pdf)**
+**[Housing Prices Forecast](/pdf/TimeSeriesFinal.pdf)**
 
 The housing market is becoming more and more volatile in recent years with skyrocketing rent and mortgage rates. Using methods like regression, ARIMA/ARMA models, and Holt-Winters forecasting, I tested models and chose one to predict what the median sales price of houses would look like in the next four years based on predictors such as 30-year fixed mortgage rate and homeownership rate.
 
@@ -31,7 +31,7 @@ The housing market is becoming more and more volatile in recent years with skyro
 **Figure 3**: I forecasted median housing prices for approximately the next four years, using an ARIMA(2, 3, 3) model. According to my model, housing prices, currently at $467,700.00, will have skyrocketed to $672,875.60 by Q1 of 2027. Examining the trend in the median housing prices leading up to the 2008 recession, there is a similar peak in housing prices. Although prices may not reach the prediction that I came up with, there is still chance for a potential housing bubble.
 
 ---
-**[Math Scores in Secondary Schools](/pdf/Math_Scores.pdf)**
+**[Math Scores in Secondary Schools](/pdf/MathScores.pdf)**
 
 I chose the Student Performance Data Set from the UCI Machine Learning Repository to perform common statistical learning methods and figure out the best model based on its cross-validated predictive performance. The models in consideration included penalized lasso regression, k-nearest neighbors, decision tree, and random forest.
 
