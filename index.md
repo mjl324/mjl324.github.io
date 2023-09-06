@@ -31,7 +31,6 @@ The housing market is becoming more and more volatile in recent years with skyro
 **Figure 3**: I forecasted median housing prices for approximately the next four years, using an ARIMA(2, 3, 3) model. According to my model, housing prices, currently at $467,700.00, will have skyrocketed to $672,875.60 by Q1 of 2027. Examining the trend in the median housing prices leading up to the 2008 recession, there is a similar peak in housing prices. Although prices may not reach the prediction that I came up with, there is still chance for a potential housing bubble.
 
 ---
-
 **[Math Scores in Secondary Schools](/pdf/Math_Scores.pdf)**
 
 I chose the Student Performance Data Set from the UCI Machine Learning Repository to perform common statistical learning methods and figure out the best model based on its cross-validated predictive performance. The models in consideration included penalized lasso regression, k-nearest neighbors, decision tree, and random forest.
@@ -41,7 +40,6 @@ I chose the Student Performance Data Set from the UCI Machine Learning Repositor
 **Figure 4**: A diagram of my regression tree using fancyRpartPlot() function from the *rattle* library in R. The final tree has 22 terminal nodes. Node 2, which contains students who have failed before, contains the most amount of students (63) predicted to score low in Math.
 
 ---
-
 **[Data Consulting for Let's Chow](https://www.letschow.org/)**
 
 Let's Chow, formerly Chow Corp, is a nonprofit that connects with military veterans with culinary education and starting their own business. Through Hoyalytics, a student-run data analytics club at Georgetown University for which I am VP of Analytics, a team of data consultants and I pitched new locations in San Diego for another veteran-run food truck. We gathered data from parking meters, foot traffic, and other food truck locations to pinpoint four optimal locations in SD from across the country.
