@@ -4,6 +4,25 @@
 
 ### Projects
 
+**[DBMS Implementation](/sample_page.md)**
+
+I built a database management system (DBMS) in Python that is able to parse SQL language. It is able to handle errors, referential integrity, and most basic database schema functions.
+
+---
+**[SQL Application](/pdf/FPS.pdf)**
+
+Through SQL queries, this project aimed to demonstrate the connection carbon emissions of each state, where the top tech companies are located, and market data of these companies. The relational database design follows third normal form.
+
+---
+**[Fatal Police Shootings Data Analysis](/pdf/FPS.pdf)**
+
+I worked on this project when I was first learning how to visualize data using R, while also pursuing other interests in social justice. I used data from the Washington Post that records every fatal police encounter since 2015, so I could find for myself the disproportionate rate of fatal police killings among young Black men through exploratory data analysis in R.
+
+<img src="images/Screen Shot 2023-09-05 at 4.34.17 PM.png"/>
+
+**Figure 1**: A histogram where the width of the bins are unequal. Instead, the bin widths are proportional to the US population of each race, and the heights are the frequency of fatal police encounters. Clearly, Black people do not make up a large proportion of the US population, yet they experience the highest rate of fatal police killings compared to every other race.
+
+---
 **[Fatal Police Shootings Data Analysis](/pdf/FPS.pdf)**
 
 I worked on this project when I was first learning how to visualize data using R, while also pursuing other interests in social justice. I used data from the Washington Post that records every fatal police encounter since 2015, so I could find for myself the disproportionate rate of fatal police killings among young Black men through exploratory data analysis in R.
