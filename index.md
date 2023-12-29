@@ -4,7 +4,7 @@
 
 ### Projects
 
-**[DBMS Implementation](/sample_page.md)**
+**[DBMS Implementation](/dbms.md)**
 
 I built a database management system (DBMS) in Python that is able to parse SQL language. It is able to handle errors, referential integrity, and most basic database schema functions.
 
