@@ -2,7 +2,7 @@
 
 **Project description:** This simplified, single-user relational database management system implementation includes a SQL parser, an indexing structure, a query optimizer, and an execution engine using Python.
 
-For more details see [code here](https://guides.github.com/features/mastering-markdown/).
+For more details see [code here](https://gitfront.io/r/mjl324/Utg1tydbeCrX/dbms/).
 
 ### 1. Structure
 
@@ -49,3 +49,120 @@ There were multiple optimization tactics used during the joining process. Firstl
 ### 4. Output
 
 Once any necessary joins and subsetting have been performed, we now have a final list of primary keys associated with the data we wish to output (assuming the input was a SELECT statement; if not, these steps are skipped)! Firstly, the system checks to see if any aggregation operators are called; if so, the necessary operations are performed and the relevant operator is applied to the desired attribute and outputted. Otherwise, it finds the attributes that must be outputted, and output the values in this column associated with the final list of primary keys. The final output includes the amount of time to execute the statement, and a table of the desired output (if the statement is a query).
+
+The below queries use tables from the example data to demonstrate the various functionalities of my DBMS:
+
+First, I load df1 and df2 into tables and create a df3. 
+
+```sql
+CREATE TABLE df1 (Letter VARCHAR(3), Number INT, Color VARCHAR(6), PRIMARY KEY(Letter));
+LOAD DATA INFILE  'data/df1.csv' INTO TABLE df1 IGNORE 1 ROWS;
+CREATE TABLE df2 (name VARCHAR(3), decimal FLOAT, state VARCHAR(10), year INT, FOREIGN KEY (name) REFERENCES df1(Letter), PRIMARY KEY(name));
+LOAD DATA INFILE 'data/df2.csv' INTO TABLE df2 IGNORE 1 ROWS;
+CREATE TABLE df3 (name VARCHAR(3), color VARCHAR(6), PRIMARY KEY(name));
+INSERT INTO df3 (name,color) VALUES (aab,Red);
+INSERT INTO df3 (name,color) VALUES (aad,Red);
+INSERT INTO df3 (name,color) VALUES (aac,Orange);
+```
+## Query 2 ########## (Aggregation Operators)
+SELECT AVG(Number) from df1 
+WHERE Number < 10;
+
+### Query 3 ########## (Join Over Key, OR)
+SELECT * FROM df1 a, df2 b 
+JOIN ON a.Letter = b.name 
+WHERE b.year == 2023 <img width="418" alt="Screenshot 2024-01-10 at 12 51 54 PM" src="https://github.com/mjl324/mjl324.github.io/assets/98557577/6d15e965-80cd-4cb6-b4b5-83c86ce25d9a">
+
+OR b.decimal < 0.1;
+
+### Query 4 ########## (Join Over Non-Key, AND)
+SELECT b.name, a.Letter, a.Color, a.Number FROM df1 a, df3 b 
+JOIN ON a.Color = b.color 
+WHERE a.Color == 'Red'
+AND a.Number < 3;
+
+### Query 5 ########## (LIKE, Arithmetic, IN, Multiple ORs)
+SELECT * FROM df2 
+WHERE name LIKE "aa%" 
+OR decimal > 0.9 
+OR year IN (2002, 2003, 2004);
+
+
+### Query 6 ########## (Multiple ANDs, Join Over Key)
+SELECT a.Letter, a.Color, b.decimal, b.year FROM df1 a, df2 b 
+JOIN ON a.Letter = b.name 
+WHERE b.year < 2004 
+AND b.decimal < 0.75 
+AND b.decimal > 0.5;
+
+Class data:
+
+CREATE TABLE df1 (w1 INT, w2 INT, PRIMARY KEY(w1));
+CREATE TABLE df2 (x1 INT, x2 INT, FOREIGN KEY (x1) REFERENCES df1(w1), PRIMARY KEY(x1));
+CREATE TABLE df3 (y1 INT, y2 INT, PRIMARY KEY(y1));
+CREATE TABLE df4 (z1 INT, z2 INT, FOREIGN KEY (z1) REFERENCES df3(y1), PRIMARY KEY(z1));
+LOAD DATA INFILE 'data/rel_i_i_1000' INTO TABLE df1 IGNORE 1 ROWS;
+LOAD DATA INFILE 'data/rel_i_1_1000' INTO TABLE df2 IGNORE 1 ROWS;
+LOAD DATA INFILE 'data/rel_i_i_10000' INTO TABLE df3 IGNORE 1 ROWS;
+LOAD DATA INFILE 'data/rel_i_1_10000' INTO TABLE df4 IGNORE 1 ROWS;
+
+### Outputting Full Tables ##########
+
+SELECT * FROM df1;
+
+SELECT * FROM df2;
+
+SELECT * FROM df3;
+
+SELECT * FROM df4;
+
+### Query 1 ########## (Good Insertion)
+INSERT INTO df1 (w1, w2) VALUES (1001,1001);
+SELECT * FROM df1 WHERE w1 > 990;
+
+### Query 2 ########## (Duplicate Primary Key)
+INSERT INTO df1 (w1, w2) VALUES (1,1);
+
+### Query 3 ########## (Non-Existent Foreign Attribute)
+INSERT INTO df2 (x1, x2) VALUES (9999,1);
+
+### Query 4 ########## (Insertion with Wrong Data Type)
+INSERT INTO df2 (x1, x2) VALUES (‘hello’,1);
+
+
+### Query 5 ########## (Good Deletion, Error Handling, Cascading Delete)
+DELETE FROM df1 WHERE w1 == 1000;
+SELECT * FROM df1 WHERE w1 > 990;
+
+DELETE FROM df1 WHERE w1 == 1000;
+
+SELECT * FROM df2 WHERE x1 > 990;
+
+### Query 6 ########## (Good Update)
+UPDATE df1 SET w2 = 8888 WHERE w2 > 995;
+SELECT * FROM df1 WHERE w1 > 990;
+
+### Query 7 ########## (Update Key Column)
+UPDATE df1 SET w1 = 8888 WHERE w1 > 995;
+
+### Query 8 ########## (Update With Wrong Data Type)
+UPDATE df1 SET w2 = “hello” WHERE w2 > 995;
+
+### Query 9 ########## (Cascading Drop)
+DROP TABLE df1;
+
+SELECT * FROM df1;
+
+SELECT * FROM df2;
+
+### Query 10 ########## (Nested Loop)
+
+CREATE TABLE df5 (f1 INT, f2 INT, PRIMARY KEY(f1));
+INSERT INTO df5 (f1, f2) VALUES (1,1);
+
+SELECT a.f1, b.z1 FROM df5 a, df4 b JOIN ON a.f1 = b.z1;
+
+### Query 11 ########## (Merge Scan)
+
+SELECT a.y1, b.z1 FROM df3 a, df4 b JOIN ON a.y1 = b.z1;
+```
