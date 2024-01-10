@@ -9,7 +9,7 @@
 I built a database management system (DBMS) in Python that is able to parse SQL language. It is able to handle errors, referential integrity, and most basic database schema functions.
 
 ---
-**[SQL Application](/pdf/FPS.pdf)**
+**[SQL Application](/sqlapp.md)**
 
 Through SQL queries, this project aimed to demonstrate the connection carbon emissions of each state, where the top tech companies are located, and market data of these companies. The relational database design follows third normal form.
 
