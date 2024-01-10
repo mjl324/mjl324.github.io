@@ -55,31 +55,59 @@ The below queries use tables from the example data to demonstrate the various fu
 First, I load df1 and df2 into tables and create a df3. 
 
 ```sql
-CREATE TABLE df1 (Letter VARCHAR(3), Number INT, Color VARCHAR(6), PRIMARY KEY(Letter));
+CREATE TABLE df1 (
+  Letter VARCHAR(3),
+  Number INT,
+  Color VARCHAR(6),
+  PRIMARY KEY(Letter)
+);
 LOAD DATA INFILE  'data/df1.csv' INTO TABLE df1 IGNORE 1 ROWS;
-CREATE TABLE df2 (name VARCHAR(3), decimal FLOAT, state VARCHAR(10), year INT, FOREIGN KEY (name) REFERENCES df1(Letter), PRIMARY KEY(name));
+CREATE TABLE df2 (
+  name VARCHAR(3),
+  decimal FLOAT,
+  state VARCHAR(10),
+  year INT,
+  FOREIGN KEY (name) REFERENCES df1(Letter),
+  PRIMARY KEY(name)
+);
 LOAD DATA INFILE 'data/df2.csv' INTO TABLE df2 IGNORE 1 ROWS;
-CREATE TABLE df3 (name VARCHAR(3), color VARCHAR(6), PRIMARY KEY(name));
+CREATE TABLE df3 (
+  name VARCHAR(3),
+  color VARCHAR(6),
+  PRIMARY KEY(name)
+);
 INSERT INTO df3 (name,color) VALUES (aab,Red);
 INSERT INTO df3 (name,color) VALUES (aad,Red);
 INSERT INTO df3 (name,color) VALUES (aac,Orange);
 ```
-## Query 2 ########## (Aggregation Operators)
+
+Starting off with a simple query first, below is the output for a SELECT statement with a simple aggregation. 
+
+```sql
 SELECT AVG(Number) from df1 
-WHERE Number < 10;
+  WHERE Number < 10;
+```
+<img width="552" alt="Screenshot 2024-01-10 at 1 05 12 PM" src="https://github.com/mjl324/mjl324.github.io/assets/98557577/f44d3ecf-1af8-4d23-b910-3d215d2a3c72">
 
-### Query 3 ########## (Join Over Key, OR)
+The next query shows how tables are joined over their keys with two disjunctive conditions. The actual output is shortened for demonstration purposes.
+
+```sql
 SELECT * FROM df1 a, df2 b 
-JOIN ON a.Letter = b.name 
-WHERE b.year == 2023 <img width="418" alt="Screenshot 2024-01-10 at 12 51 54 PM" src="https://github.com/mjl324/mjl324.github.io/assets/98557577/6d15e965-80cd-4cb6-b4b5-83c86ce25d9a">
+  JOIN ON a.Letter = b.name 
+  WHERE b.year == 2023
+  OR b.decimal < 0.02;
+```
+<img width="466" alt="Screenshot 2024-01-10 at 1 11 10 PM" src="https://github.com/mjl324/mjl324.github.io/assets/98557577/a270ff04-b69c-4319-88ee-74158cad983b">
 
-OR b.decimal < 0.1;
+This query shows how tables are joined on non-key attributes, this time with two conjunctive conditions.
 
-### Query 4 ########## (Join Over Non-Key, AND)
+```sql
 SELECT b.name, a.Letter, a.Color, a.Number FROM df1 a, df3 b 
-JOIN ON a.Color = b.color 
-WHERE a.Color == 'Red'
-AND a.Number < 3;
+  JOIN ON a.Color = b.color 
+  WHERE a.Color == 'Red'
+  AND a.Number < 2;
+```
+<img width="250" alt="Screenshot 2024-01-10 at 1 17 06 PM" src="https://github.com/mjl324/mjl324.github.io/assets/98557577/527e61fe-8b4c-4aa9-b031-51d79c24ba42">
 
 ### Query 5 ########## (LIKE, Arithmetic, IN, Multiple ORs)
 SELECT * FROM df2 
