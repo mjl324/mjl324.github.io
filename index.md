@@ -50,9 +50,9 @@ I worked on this project when I was first learning how to visualize data using R
 **Figure 4**: A histogram where the width of the bins are unequal. Instead, the bin widths are proportional to the US population of each race, and the heights are the frequency of fatal police encounters. Clearly, Black people do not make up a large proportion of the US population, yet they experience the highest rate of fatal police killings compared to every other race.
 
 ---
-**[Data Consulting for Let's Chow](https://www.letschow.org/)**
+**Data Consulting for Let's Chow**
 
-Let's Chow, formerly Chow Corp, is a nonprofit that connects with military veterans with culinary education and starting their own business. Through Hoyalytics, a student-run data analytics club at Georgetown University for which I am VP of Analytics, a team of data consultants and I pitched new locations in San Diego for another veteran-run food truck. We gathered data from parking meters, foot traffic, and other food truck locations to pinpoint four optimal locations in SD from across the country.
+[Let's Chow](https://www.letschow.org/), formerly Chow Corp, is a nonprofit that connects with military veterans with culinary education and starting their own business. Through Hoyalytics, a student-run data analytics club at Georgetown University for which I am VP of Analytics, a team of data consultants and I pitched new locations in San Diego for another veteran-run food truck. We gathered data from parking meters, foot traffic, and other food truck locations to pinpoint four optimal locations in SD from across the country.
 
 <img src="images/Screen Shot 2023-09-05 at 5.14.31 PM.png"/>
 
