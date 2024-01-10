@@ -23,7 +23,7 @@ The system handles the following data types using the respective syntax:
 
 The DBMS takes regular SQL syntax with the exception of equi-join language, which deviates from SQL. A join clause in a sample input line of my DBMS would be done by entering the following:
 
-```javascript
+```sql
 SELECT * FROM df1 as a, df2 as b JOIN ON a.x1 = b.z1
 ```
 
