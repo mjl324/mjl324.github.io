@@ -11,7 +11,7 @@ In a given relation, I stored a global dictionary of {table name:Table object} p
 I chose to implement this structure to emphasize query run time efficiency over space efficiency. My decision to default to both a fully indexed structure and to use Python dictionaries made our implementation very space inefficient. This is because I store every entry of a given table, including duplicates, in the primary key sub-dictionary, and then store all the unique values of every column again in the non-key sub-dictionaries. 
 Despite this space inefficiency, the structure allowed for much faster query computation time, as all columns were indexed. If you wanted to subset your data for a certain column, it only needs to condition the unique values of the column and then get the corresponding lists of primary keys—rather than iterating over every row. Given that the functionality for selection, deletion, and updating all involved first getting a list of conditioned values, the structure made all of these functionalities very efficient.
 
-<img src="images/tablestructure.jpeg?raw=true"/>
+<img src="images/table structure.jpeg?raw=true"/>
 **Figure 1:** A diagram representing the dictionary structure of the system.
 
 ### 2. SQL Parsing
