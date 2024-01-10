@@ -109,22 +109,9 @@ SELECT b.name, a.Letter, a.Color, a.Number FROM df1 a, df3 b
 ```
 <img width="250" alt="Screenshot 2024-01-10 at 1 17 06 PM" src="https://github.com/mjl324/mjl324.github.io/assets/98557577/527e61fe-8b4c-4aa9-b031-51d79c24ba42">
 
-### Query 5 ########## (LIKE, Arithmetic, IN, Multiple ORs)
-SELECT * FROM df2 
-WHERE name LIKE "aa%" 
-OR decimal > 0.9 
-OR year IN (2002, 2003, 2004);
+Finally, using four new datasets to create new relations, the queries below test error handling and referential integrity for insertion, deletion, and updates.
 
-
-### Query 6 ########## (Multiple ANDs, Join Over Key)
-SELECT a.Letter, a.Color, b.decimal, b.year FROM df1 a, df2 b 
-JOIN ON a.Letter = b.name 
-WHERE b.year < 2004 
-AND b.decimal < 0.75 
-AND b.decimal > 0.5;
-
-Class data:
-
+```sql
 CREATE TABLE df1 (w1 INT, w2 INT, PRIMARY KEY(w1));
 CREATE TABLE df2 (x1 INT, x2 INT, FOREIGN KEY (x1) REFERENCES df1(w1), PRIMARY KEY(x1));
 CREATE TABLE df3 (y1 INT, y2 INT, PRIMARY KEY(y1));
@@ -134,31 +121,27 @@ LOAD DATA INFILE 'data/rel_i_1_1000' INTO TABLE df2 IGNORE 1 ROWS;
 LOAD DATA INFILE 'data/rel_i_i_10000' INTO TABLE df3 IGNORE 1 ROWS;
 LOAD DATA INFILE 'data/rel_i_1_10000' INTO TABLE df4 IGNORE 1 ROWS;
 
-### Outputting Full Tables ##########
+# Outputting Full Tables
 
 SELECT * FROM df1;
-
 SELECT * FROM df2;
-
 SELECT * FROM df3;
-
 SELECT * FROM df4;
 
-### Query 1 ########## (Good Insertion)
+# Query 1 (Good Insertion)
 INSERT INTO df1 (w1, w2) VALUES (1001,1001);
 SELECT * FROM df1 WHERE w1 > 990;
 
-### Query 2 ########## (Duplicate Primary Key)
+# Query 2 (Duplicate Primary Key)
 INSERT INTO df1 (w1, w2) VALUES (1,1);
 
-### Query 3 ########## (Non-Existent Foreign Attribute)
+# Query 3 (Non-Existent Foreign Attribute)
 INSERT INTO df2 (x1, x2) VALUES (9999,1);
 
-### Query 4 ########## (Insertion with Wrong Data Type)
+# Query 4 (Insertion with Wrong Data Type)
 INSERT INTO df2 (x1, x2) VALUES (‘hello’,1);
 
-
-### Query 5 ########## (Good Deletion, Error Handling, Cascading Delete)
+# Query 5 (Good Deletion, Error Handling, Cascading Delete)
 DELETE FROM df1 WHERE w1 == 1000;
 SELECT * FROM df1 WHERE w1 > 990;
 
@@ -166,14 +149,14 @@ DELETE FROM df1 WHERE w1 == 1000;
 
 SELECT * FROM df2 WHERE x1 > 990;
 
-### Query 6 ########## (Good Update)
+# Query 6 (Good Update)
 UPDATE df1 SET w2 = 8888 WHERE w2 > 995;
 SELECT * FROM df1 WHERE w1 > 990;
 
-### Query 7 ########## (Update Key Column)
+# Query 7 (Update Key Column)
 UPDATE df1 SET w1 = 8888 WHERE w1 > 995;
 
-### Query 8 ########## (Update With Wrong Data Type)
+# Query 8 (Update With Wrong Data Type)
 UPDATE df1 SET w2 = “hello” WHERE w2 > 995;
 
 ### Query 9 ########## (Cascading Drop)
@@ -183,14 +166,14 @@ SELECT * FROM df1;
 
 SELECT * FROM df2;
 
-### Query 10 ########## (Nested Loop)
+# Query 10 (Nested Loop)
 
 CREATE TABLE df5 (f1 INT, f2 INT, PRIMARY KEY(f1));
 INSERT INTO df5 (f1, f2) VALUES (1,1);
 
 SELECT a.f1, b.z1 FROM df5 a, df4 b JOIN ON a.f1 = b.z1;
 
-### Query 11 ########## (Merge Scan)
+# Query 11 (Merge Scan)
 
 SELECT a.y1, b.z1 FROM df3 a, df4 b JOIN ON a.y1 = b.z1;
 ```
